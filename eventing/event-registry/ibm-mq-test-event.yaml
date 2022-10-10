@@ -1,0 +1,21 @@
+apiVersion: eventing.knative.dev/v1beta1
+kind: EventType
+metadata:
+  name: ibm-mq-test-event
+  namespace: knative-eventing
+  labels:
+    eventing.knative.dev/sourceName: ibm-mq-source
+spec:
+  type: io.triggermesh.ibm.mq.message
+  source: /apis/v1/namespaces/knative-eventing/ibmmqsources/ibm-mq-source
+  schema:
+  description:
+  broker: default
+status:
+  conditions:
+    - status: "True"
+      type: BrokerExists
+    - status: "True"
+      type: BrokerReady
+    - status: "True"
+      type: Ready

@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: knative-eventing
+
+resources:
+  - knative-eventing.yaml
+  - controller/kafka/eventing-kafka-controller.yaml
+  - broker/kafka/eventing-kafka-broker.yaml
+  - channel/kafka/eventing-kafka-channel.yaml
+  - sink/kafka/eventing-kafka-sink.yaml
+  - operator/operator.yaml
+  - ibm-mq-server/mq-server.yaml
+  - gtflp/release.yaml
+  - sources/ibmmq/source.yaml
+  - event-registry/ibm-mq-test-event.yaml
+  - broker/kafka.yaml
+
+  - services/cloud-events-player.yaml
+  - triggers/test-trigger.yaml

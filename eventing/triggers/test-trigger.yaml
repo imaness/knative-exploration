@@ -1,0 +1,15 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+ name: test-trigger
+ namespace: knative-eventing
+spec:
+ broker: default
+#  filter:
+#    attributes:
+#      type: ibm-mq-test-event
+ subscriber:
+   ref:
+     apiVersion: serving.knative.dev/v1
+     kind: Service
+     name: cloudevents-player

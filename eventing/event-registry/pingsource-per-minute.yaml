@@ -1,0 +1,21 @@
+apiVersion: eventing.knative.dev/v1beta1
+kind: EventType
+metadata:
+  name: pingsource-per-minute
+  namespace: knative-eventing
+  labels:
+    eventing.knative.dev/sourceName: pingsource-per-minute
+spec:
+  type: pingsource-test-event
+  source: https://pingsource.sources.knative-dev/ping-source
+  schema:
+  description:
+  broker: default
+status:
+  conditions:
+    - status: "True"
+      type: BrokerExists
+    - status: "True"
+      type: BrokerReady
+    - status: "True"
+      type: Ready
